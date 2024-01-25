@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import StateCtxProvider from "@/context/StateContext";
 import Sidebar from "@/components/Sidebar";
+import { cn } from "@/utils/util";
+import Navbar from "@/components/Navbar";
 
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], display: "swap" });
+const jakarta = Plus_Jakarta_Sans({
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-jakarta",
+});
+const inter = Inter({
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
 	title: "Analytics Dashboard",
@@ -20,11 +31,21 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" className={cn(jakarta.variable, inter.variable)}>
 			<StateCtxProvider>
-				<body className={jakarta.className}>
+				<body
+					className={cn(
+						"w-full max-w-[1440px] mx-auto dark:bg-gray-900 bg-[#fafafa] transition-colors duration-500 relative",
+						jakarta.className
+					)}
+				>
 					<Sidebar />
-					{children}
+					<header className="w-full min-[900px]:pl-[80px] absolute top-0">
+						<Navbar />
+					</header>
+					<main className="w-full max-w-[1360px] mx-auto min-[900px]:pl-[80px]">
+						{children}
+					</main>
 				</body>
 			</StateCtxProvider>
 		</html>

@@ -14,6 +14,7 @@ const ThemeButtons = () => {
 		>
 			<button
 				type="button"
+				title="Light Theme"
 				className={cn(
 					"w-[30px] h-[30px] text-[#B2ABAB] relative z-10",
 					theme === "light" &&
@@ -38,6 +39,7 @@ const ThemeButtons = () => {
 
 			<button
 				type="button"
+				title="Dark Theme"
 				className={cn(
 					"w-[30px] h-[30px]  relative z-10 text-[#B2ABAB]",
 					theme === "dark" &&

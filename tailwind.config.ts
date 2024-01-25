@@ -17,6 +17,16 @@ const config: Config = {
 				success: "#34CAA5",
 				error: "#ff1f7d",
 				warning: "#f5bf3d",
+				light: "#78828A",
+				"soft-light": "#DADDDD",
+				header: "#26282c",
+				"soft-border": "#ebecf2",
+				"soft-bg": "#f7f8fa",
+			},
+
+			fontFamily: {
+				jakarta: ["Plus Jakarta Sans", "sans-serif"],
+				inter: ["Inter", "sans-serif"],
 			},
 		},
 	},

@@ -12,11 +12,19 @@ import {
 } from "react";
 
 export type ThemeProps = "light" | "dark";
+export type User = {
+	username: string;
+	email: string;
+	profilePic: string;
+};
 interface StateContextProps {
 	theme: ThemeProps;
 	setTheme: Dispatch<SetStateAction<ThemeProps>>;
 	openSidebar: boolean;
 	setOpenSidebar: Dispatch<SetStateAction<boolean>>;
+	searchTerm: string;
+	setSearchTerm: Dispatch<SetStateAction<string>>;
+	user: User;
 }
 
 const StateContext = createContext<StateContextProps | undefined>(undefined);
@@ -24,6 +32,14 @@ const StateContext = createContext<StateContextProps | undefined>(undefined);
 const StateCtxProvider = ({ children }: { children: React.ReactNode }) => {
 	const [theme, setTheme] = useState<ThemeProps>("" as ThemeProps);
 	const [openSidebar, setOpenSidebar] = useState(false);
+	const [searchTerm, setSearchTerm] = useState("");
+	const user = useMemo(() => {
+		return {
+			username: "Justin Bergson",
+			email: "Justin@gmail.com",
+			profilePic: "/avatar.webp",
+		};
+	}, []);
 
 	useEffect(() => {
 		const t = "%c  Made with \ud83d\udc9a  - Vxrcel ",
@@ -58,8 +74,16 @@ const StateCtxProvider = ({ children }: { children: React.ReactNode }) => {
 	}, []);
 
 	const value = useMemo(
-		() => ({ theme, setTheme, openSidebar, setOpenSidebar }),
-		[theme, openSidebar]
+		() => ({
+			theme,
+			setTheme,
+			openSidebar,
+			setOpenSidebar,
+			searchTerm,
+			setSearchTerm,
+			user,
+		}),
+		[theme, openSidebar, searchTerm, user]
 	);
 
 	return (
