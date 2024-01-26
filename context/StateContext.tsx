@@ -1,5 +1,6 @@
 "use client";
 
+import { USERS, UserProps } from "@/libs/constants";
 import {
 	createContext,
 	useContext,
@@ -25,6 +26,10 @@ interface StateContextProps {
 	searchTerm: string;
 	setSearchTerm: Dispatch<SetStateAction<string>>;
 	user: User;
+	setOpenTrendmenu: Dispatch<SetStateAction<boolean>>;
+	openTrendmenu: boolean;
+
+	filterUsers: UserProps[];
 }
 
 const StateContext = createContext<StateContextProps | undefined>(undefined);
@@ -32,7 +37,9 @@ const StateContext = createContext<StateContextProps | undefined>(undefined);
 const StateCtxProvider = ({ children }: { children: React.ReactNode }) => {
 	const [theme, setTheme] = useState<ThemeProps>("" as ThemeProps);
 	const [openSidebar, setOpenSidebar] = useState(false);
+	const [openTrendmenu, setOpenTrendmenu] = useState(false);
 	const [searchTerm, setSearchTerm] = useState("");
+
 	const user = useMemo(() => {
 		return {
 			username: "Justin Bergson",
@@ -40,6 +47,13 @@ const StateCtxProvider = ({ children }: { children: React.ReactNode }) => {
 			profilePic: "/avatar.webp",
 		};
 	}, []);
+
+	const filterUsers = USERS.filter((msg) => {
+		if (!(searchTerm.length > 1)) {
+			return msg;
+		}
+		return msg.name.toLowerCase().includes(searchTerm.toLowerCase());
+	});
 
 	useEffect(() => {
 		const t = "%c  Made with \ud83d\udc9a  - Vxrcel ",
@@ -82,8 +96,12 @@ const StateCtxProvider = ({ children }: { children: React.ReactNode }) => {
 			searchTerm,
 			setSearchTerm,
 			user,
+			openTrendmenu,
+			setOpenTrendmenu,
+
+			filterUsers,
 		}),
-		[theme, openSidebar, searchTerm, user]
+		[theme, openSidebar, searchTerm, openTrendmenu, user, filterUsers]
 	);
 
 	return (

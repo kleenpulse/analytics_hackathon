@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import { cn, shrinkString } from "@/utils/util";
 import { LogoutCurve, Setting2 } from "iconsax-react";
 import Link from "next/link";
-import ThemeButtons from "./ThemeButtons";
+import ThemeButtons from "../ThemeButtons";
 import { useStateCtx } from "@/context/StateContext";
 import { handleMouseEnter } from "@/utils/text-effect";
 
@@ -17,7 +17,7 @@ const Sidebar = () => {
 	return (
 		<section
 			className={cn(
-				"bg-[#f7f8fa] dark:bg-gray-900 dark:border-r-gray-700 border-r-soft-border dark:border-success/40 z-[50]  transition-all duration-300 py-5 min-[900px]:flex flex-col gap-y-4 justify-between sticky h-screen left-0 top-0  border-r border-gray-200  sidebar-scroll   select-none",
+				"bg-[#f7f8fa] dark:bg-gray-900  border-r-soft-border min-[1440px]:border-l dark:border-success/40 z-[60]  transition-all duration-300 py-5 min-[900px]:flex flex-col gap-y-4 justify-between sticky min-h-screen left-0 top-0  border-r border-gray-200  sidebar-scroll   select-none ",
 				{
 					"w-[270px] items-start flex translate-x-0 z-[99]": openSidebar,
 					"w-[80px]  items-center   -translate-x-full min-[900px]:translate-x-0":

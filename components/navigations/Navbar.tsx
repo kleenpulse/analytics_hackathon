@@ -1,9 +1,9 @@
 "use client";
 
 import { Calendar, HambergerMenu, Notification } from "iconsax-react";
-import SearchBox from "./SearchBox";
+import SearchBox from "../SearchBox";
 
-import UserContainer from "./UserContainer";
+import UserContainer from "../cards/UserContainer";
 import { handleMouseEnter } from "@/utils/text-effect";
 import { useStateCtx } from "@/context/StateContext";
 
@@ -25,9 +25,9 @@ const Navbar = () => {
 				}}
 				onClick={() => setOpenSidebar(true)}
 				tabIndex={0}
-				className="focus-visible:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success min-[900px]:hidden mr-4 h-10 w-10 relative z-50 "
+				className="focus-visible:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success min-[900px]:hidden mr-4 h-12 w-12 relative z-50 "
 			>
-				<HambergerMenu className="" />
+				<HambergerMenu className="text-black dark:text-white h-full w-full " />
 			</button>
 			<div className="flex w-full max-w-[30%]">
 				<h2
@@ -47,7 +47,7 @@ const Navbar = () => {
 						className=" text-black dark:text-success "
 						aria-hidden
 					/>
-					<span className="text-header dark:text-success font-medium text-sm font-inter w-[131px] hidden md:inline-block">
+					<span className="text-header dark:text-success font-medium text-sm font-inter w-[131px] hidden min-[900px]:inline-block">
 						November 15, 2023
 					</span>
 				</div>

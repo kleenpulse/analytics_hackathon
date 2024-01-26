@@ -22,6 +22,7 @@ const config: Config = {
 				header: "#26282c",
 				"soft-border": "#ebecf2",
 				"soft-bg": "#f7f8fa",
+				"trend-down": "#ed544e",
 			},
 
 			fontFamily: {

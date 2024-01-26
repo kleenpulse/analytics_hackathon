@@ -10,7 +10,6 @@
 }
 :root {
 	--bezier-bounce: 0.1, 0.885, 0.32, 1.575;
-	/* --bezier-bounce: 0.175, 0.885, 0.32, 1.275; */
 }
 
 .max-container {
@@ -28,4 +27,36 @@
 
 .dark-theme::before {
 	transform: translate3d(0, 46px, 0);
+}
+
+.hide-scroll::-webkit-scrollbar {
+	width: 2px;
+}
+.sidebar-scroll::-webkit-scrollbar {
+	width: 6px;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb {
+	background: rgba(5, 44, 66, 0.2);
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #34caa5;
+}
+
+::selection {
+	color: white;
+	background: #052c42;
+}
+.dark ::selection {
+	color: rgb(201, 191, 2);
+	background: #011724;
 }

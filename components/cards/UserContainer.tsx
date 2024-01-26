@@ -30,7 +30,7 @@ const UserContainer = () => {
 					alt="user"
 					height={38}
 					width={38}
-					className="rounded-full object-contain"
+					className="rounded-full object-contain max-sm:scale-110"
 				/>
 			</button>
 			<div className="hidden lg:flex flex-col  items-end">
