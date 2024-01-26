@@ -3,12 +3,16 @@ interface ChartProps {
 	apexSeries: any;
 }
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const BarChart = ({ apexOptions, apexSeries }: ChartProps) => {
-	const [winWidth, setWinWidth] = useState(window?.innerWidth);
+	const [winWidth, setWinWidth] = useState(0);
+
+	useLayoutEffect(() => {
+		setWinWidth(window.innerWidth);
+	}, []);
 	useEffect(() => {
 		const handleResize = () => setWinWidth(window.innerWidth);
 		window.addEventListener("resize", handleResize);
