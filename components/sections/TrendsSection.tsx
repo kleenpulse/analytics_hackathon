@@ -8,7 +8,7 @@ const TrendsSection = () => {
 	return (
 		<section className="flex-col-reverse gap-y-5 flex xl:flex-row xl:justify-start  w-full lg:gap-x-4 xl:gap-8 xl:h-[374px]  relative">
 			<SalesTrendChartSection />
-			<div className="max-lg:w-full flex flex-wrap justify-center min-[500px]:justify-between xl:grid xl:grid-cols-2 gap-5 h-full ">
+			<div className="max-lg:w-full max-[450px]:flex max-[450px]:flex-col grid  grid-cols-2 min-[540px]:flex min-[540px]:flex-wrap justify-between xl:grid xl:grid-cols-2 min-[500px]:gap-5 min-[400px]:gap-3 gap-2 h-full ">
 				{TOTAL_CARDS.map((card) => (
 					<TrendCard key={card.id} card={card} />
 				))}

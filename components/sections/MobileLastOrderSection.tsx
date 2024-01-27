@@ -2,10 +2,12 @@ import { useStateCtx } from "@/context/StateContext";
 import { cn } from "@/utils/util";
 import { DocumentDownload } from "iconsax-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const MobileLastOrderSection = ({ usersNum }: { usersNum: number }) => {
-	const { searchTerm, filterUsers } = useStateCtx();
+	const { searchTerm, filterUsers, setViewDocModal } = useStateCtx();
+	const router = useRouter();
 	return (
 		<div className="flex sm:hidden w-full h-[420px] hide-scroll overflow-y-auto flex-col  ">
 			{filterUsers.slice(0, usersNum).map((data, index) => (
@@ -68,10 +70,17 @@ const MobileLastOrderSection = ({ usersNum }: { usersNum: number }) => {
 						>
 							{data.status}
 						</span>
-						<span className=" w-full max-w-[100px] text-main-sec  dark:text-gray-100  flex  gap-x-2 items-center  h-full">
+						<button
+							type="button"
+							onClick={() => {
+								router.push(`?docId=${data.id}`, { scroll: false });
+								setViewDocModal(true);
+							}}
+							className=" w-full max-w-[100px] text-main-sec  dark:text-gray-100  flex  gap-x-2 items-center  h-full"
+						>
 							<DocumentDownload size={16} />
 							<span className="text-xs ">View</span>
-						</span>
+						</button>
 					</div>
 				</div>
 			))}

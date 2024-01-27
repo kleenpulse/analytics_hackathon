@@ -6,12 +6,16 @@ import SearchBox from "../SearchBox";
 import UserContainer from "../cards/UserContainer";
 import { handleMouseEnter } from "@/utils/text-effect";
 import { useStateCtx } from "@/context/StateContext";
+import InfoModal from "../modal/InfoModal";
+import InputModal from "../modal/InputModal";
 
 const Navbar = () => {
-	const { openSidebar, setOpenSidebar } = useStateCtx();
+	const { openSidebar, setOpenSidebar, setShowDate, showDate, todayDate } =
+		useStateCtx();
 
 	return (
-		<nav className=" w-full flex items-center justify-between px-2 md:px-4 py-2 md:py-[18px] md:h-[88px] border-b-soft-border border-b dark:border-success/40 ">
+		<nav className=" w-full flex items-center justify-between px-2 md:px-4 py-2 md:py-[18px] md:h-[88px] border-b-soft-border border-b dark:border-success/40 relative">
+			<InfoModal info={todayDate} />
 			<button
 				type="button"
 				aria-haspopup
@@ -41,14 +45,30 @@ const Navbar = () => {
 			<div className="flex items-center  w-full justify-end gap-x-3 md:gap-x-5">
 				<SearchBox />
 				<div className="flex md:w-[193px] justify-center items-center gap-x-4">
-					<Calendar
-						size={20}
-						tabIndex={-1}
-						className=" text-black dark:text-success "
-						aria-hidden
-					/>
+					<button
+						type="button"
+						aria-haspopup
+						aria-label="Open sidebar menu"
+						aria-expanded={showDate}
+						onKeyUp={(e) => {
+							if (e.key === "Enter" || e.key === " ") {
+								setShowDate(true);
+								return;
+							}
+						}}
+						onClick={() => setShowDate(true)}
+						tabIndex={0}
+						className="focus-visible:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success min-[900px]:hidden h-5 w-5 relative z-50 "
+					>
+						<Calendar
+							size={20}
+							tabIndex={-1}
+							className=" text-black dark:text-success "
+							aria-hidden
+						/>
+					</button>
 					<span className="text-header dark:text-success font-medium text-sm font-inter w-[131px] hidden min-[900px]:inline-block">
-						November 15, 2023
+						{todayDate}
 					</span>
 				</div>
 				<span className="border border-soft-light dark:border-success/20  flex justify-center items-center rounded-full h-10 w-full max-w-[40px]">

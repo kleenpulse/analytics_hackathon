@@ -1,15 +1,20 @@
 import { useStateCtx } from "@/context/StateContext";
 import { cn, shrinkString } from "@/utils/util";
+import { Logout, Setting, User } from "iconsax-react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
+import DropdownButton from "../miscellaneous/DropdownButton";
 
 const UserContainer = () => {
 	const { user } = useStateCtx();
 	const [openProfile, setOpenProfile] = useState(false);
 
 	return (
-		<div className="w-full max-w-[50px] lg:max-w-[215px] h-[52px] flex items-center gap-x-1 justify-center lg:justify-between p-1 lg:px-2 lg:py-[6px] rounded-full border border-soft-border dark:border-success/20 relative">
+		<div
+			role="button"
+			className="w-full max-w-[50px] lg:max-w-[215px] h-[52px] flex items-center gap-x-1 justify-center lg:justify-between p-1 lg:px-2 lg:py-[6px] rounded-full border border-soft-border dark:border-success/20 relative"
+		>
 			<button
 				type="button"
 				aria-haspopup
@@ -33,7 +38,10 @@ const UserContainer = () => {
 					className="rounded-full object-contain max-sm:scale-110"
 				/>
 			</button>
-			<div className="hidden lg:flex flex-col  items-end">
+			<div
+				onClick={() => setOpenProfile((prev) => !prev)}
+				className="hidden lg:flex flex-col  items-end"
+			>
 				<span className="text-header dark:text-gray-300 font-inter">
 					{shrinkString({ str: user.username, len: 20 })}
 				</span>
@@ -73,48 +81,58 @@ const UserContainer = () => {
 			<div
 				role="dialog"
 				className={cn(
-					" absolute max-h-max   w-[300px] top-16 right-1 z-[999999] dark:bg-primary/80 bg-white backdrop-blur-xl flex flex-col   items-center   shadow-[0_10px_40px_rgba(0,0,0,0.23)] rounded-xl before:absolute before:content-[''] before:h-[20px] before:w-[20px] before:bg-gradient-to-tl dark:from-transparent dark:via-transparent dark:to-color-dark from-white  to-white before:overflow-hidden before:-top-2 before:rotate-[45deg] before:right-4 before:z-[-1] transform-gpu transition-all ",
+					" absolute max-h-max border dark:border-success/80 p-4 border-soft-light  w-[220px] top-16 right-1 z-[99] dark:bg-black/60  bg-white backdrop-blur-xl flex flex-col gap-y-2   justify-between  shadow-[0_10px_40px_rgba(0,0,0,0.23)] rounded-xl before:absolute before:content-[''] before:h-[20px] before:w-[20px] before:bg-gradient-to-tl dark:from-transparent dark:via-transparent dark:to-success from-white  to-white before:overflow-hidden before:-top-2 before:rotate-[45deg] before:right-4 before:z-[-1] transform-gpu transition-all ",
 					openProfile
-						? "opacity-100 h-[290px] duration-500 "
-						: "opacity-0 h-0 duration-200 overflow-hidden"
+						? "opacity-100 h-[200px] duration-500 "
+						: "opacity-0 h-0 duration-200 overflow-hidden pointer-events-none"
 				)}
 			>
-				<Image
-					src={user.profilePic}
-					alt="user"
-					height={300}
-					width={300}
-					className="rounded-xl object-contain object-center"
-				/>
-				<div className="flex flex-col gap-y-1 pb-1 absolute rounded-br-xl rounded-bl-xl -bottom-[5px] left-0 w-full bg-black/10 backdrop-blur-sm">
-					<DropdowmName
-						className="uppercase"
-						text={shrinkString({ str: user.username, len: 21 })}
+				<div className="flex items-center  gap-x-2     w-full pb-2 backdrop-blur-sm border-b border-gray-300 dark:border-success/50">
+					<Image
+						src={user.profilePic}
+						alt="user"
+						height={70}
+						width={70}
+						className="rounded-full object-contain object-center "
 					/>
-					<DropdowmName text={shrinkString({ str: user.email, len: 21 })} />
+
+					<div className="flex flex-col items-start">
+						<span
+							className={cn(
+								"text-header dark:text-gray-200 text-sm font-semibold dark:hover:bg-color-dark/20  "
+							)}
+						>
+							{shrinkString({ str: user.username, len: 20 })}
+						</span>
+						<span
+							className={cn(
+								"text-header dark:text-gray-400 text-sm  dark:hover:bg-color-dark/20  "
+							)}
+						>
+							{shrinkString({ str: user.email, len: 15 })}
+						</span>
+					</div>
 				</div>
+
+				<DropdownButton
+					icon={<User size={18} className="text-gray-400 dark:text-success " />}
+					text="My Profile"
+				/>
+				<DropdownButton
+					icon={
+						<Setting size={18} className="text-gray-400 dark:text-success " />
+					}
+					text="Account Settings"
+				/>
+				<DropdownButton
+					icon={
+						<Logout size={18} className="text-gray-400 dark:text-success " />
+					}
+					text="Logout"
+				/>
 			</div>
 		</div>
 	);
 };
 
 export default UserContainer;
-
-const DropdowmName = ({
-	text,
-	className,
-}: {
-	text: string;
-	className?: HTMLSpanElement["className"];
-}) => {
-	return (
-		<span
-			className={cn(
-				"bg-gradient-to-r from-transparent via-white to-transparent dark:from-transparent dark:via-success dark:to-transparent px-2 py-1 w-full text-center dark:hover:bg-color-dark/20 dark:text-gray-100 font-inter font-medium text-header  ",
-				className
-			)}
-		>
-			{text}
-		</span>
-	);
-};

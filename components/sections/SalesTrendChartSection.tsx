@@ -1,7 +1,7 @@
 "use client";
 
 import { APEX_CHART_DATA, APEX_CHART_OPTIONS } from "@/libs/constants";
-import dynamic from "next/dynamic";
+
 import TrendDropdown from "../cards/TrendDropdown";
 import BarChart from "../barChart";
 

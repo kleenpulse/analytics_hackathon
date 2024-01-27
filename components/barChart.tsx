@@ -4,8 +4,12 @@ interface ChartProps {
 }
 import dynamic from "next/dynamic";
 import { useEffect, useLayoutEffect, useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+const Chart = dynamic(() => import("react-apexcharts"), {
+	ssr: false,
+	loading: () => <LoadingSpinner />,
+});
 
 const BarChart = ({ apexOptions, apexSeries }: ChartProps) => {
 	const [winWidth, setWinWidth] = useState(0);
@@ -25,7 +29,7 @@ const BarChart = ({ apexOptions, apexSeries }: ChartProps) => {
 				plotOptions: {
 					bar: {
 						columnWidth: winWidth < 600 ? "10px" : "30px",
-						borderRadius: 15,
+						borderRadius: winWidth < 600 ? 5 : 15,
 
 						borderRadiusApplication: "end",
 					},

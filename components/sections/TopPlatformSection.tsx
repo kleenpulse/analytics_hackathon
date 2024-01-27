@@ -15,7 +15,7 @@ const TopPlatformSection = () => {
 				"w-full xl:w-[488px] flex flex-col gap-y-[14px] justify-center py-6 border border-soft-border dark:border-success/20 text-[#9ca4ab]  dark:text-gray-300  bg-white dark:bg-gray-950 px-4 rounded-2xl"
 			)}
 		>
-			<div className="flex items-center justify-between w-full ">
+			<div className="flex items-center justify-between w-full sm:px-4">
 				<span className="text-[18px] font-semibold text-header  dark:text-white">
 					Top Platform
 				</span>
@@ -34,7 +34,7 @@ const TopPlatformSection = () => {
 				</button>
 			</div>
 
-			<div className="flex w-full h-[420px] hide-scroll overflow-y-auto flex-col  mt-4 gap-y-4">
+			<div className="flex w-full h-[420px] hide-scroll overflow-y-auto flex-col sm:px-4   mt-4 gap-y-4">
 				{TOP_PLATFORMS.slice(0, usersNum).map((data) => (
 					<TopPlatformCard key={data.id} data={data} />
 				))}

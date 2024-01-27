@@ -10,6 +10,16 @@ const config: Config = {
 
 	theme: {
 		extend: {
+			keyframes: {
+				loadspin: {
+					"100%": {
+						transform: "rotate(360deg)",
+					},
+				},
+			},
+			animation: {
+				loadspin: "loadspin 1.2s linear infinite",
+			},
 			colors: {
 				primary: "#bb372f",
 				secondary: "#3a3f51",
