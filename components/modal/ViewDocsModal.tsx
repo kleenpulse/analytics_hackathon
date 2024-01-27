@@ -21,7 +21,7 @@ const ViewDocsModal = () => {
 	const docId = searchParams.get("docId");
 
 	const user = USERS.find((user) => user.id === Number(docId)) as UserProps;
-	if (!user) return <LoadingSpinner />;
+	if (!user) return null;
 
 	return (
 		<>
