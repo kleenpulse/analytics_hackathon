@@ -44,7 +44,29 @@ const Navbar = () => {
 			</div>
 			<div className="flex items-center  w-full justify-end gap-x-3 md:gap-x-5">
 				<SearchBox />
-				<div className="flex md:w-[193px] justify-center items-center gap-x-4">
+				<button
+					type="button"
+					tabIndex={0}
+					aria-label="show Date"
+					aria-haspopup
+					onKeyUp={(e) => {
+						if (e.key === "Enter" || e.key === " ") {
+							setShowDate(true);
+							return;
+						}
+					}}
+					aria-expanded={showDate}
+					onClick={() => setShowDate((prev) => !prev)}
+					className=" transition-opacity duration-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-light   border border-soft-light dark:border-success/20  flex justify-center items-center rounded-full h-[30px] w-full max-w-[30px] md:hidden"
+				>
+					<Calendar
+						size={16}
+						tabIndex={-1}
+						className=" text-black dark:text-success "
+						aria-hidden
+					/>
+				</button>
+				<div className="hidden md:flex min-[900px]:w-[193px] justify-center items-center gap-x-4">
 					<button
 						type="button"
 						aria-haspopup
@@ -67,12 +89,13 @@ const Navbar = () => {
 							aria-hidden
 						/>
 					</button>
+
 					<span className="text-header dark:text-success font-medium text-sm font-inter w-[131px] hidden min-[900px]:inline-block">
 						{todayDate}
 					</span>
 				</div>
-				<span className="border border-soft-light dark:border-success/20  flex justify-center items-center rounded-full h-10 w-full max-w-[40px]">
-					<Notification className="text-black dark:text-success w-5 h-5" />
+				<span className="border border-soft-light dark:border-success/20  flex justify-center items-center rounded-full max-w-[30px] h-[30px] md:h-10 w-full md:max-w-[40px]">
+					<Notification className="text-black dark:text-success md:w-5 md:h-5 w-4 h-4" />
 				</span>
 				<UserContainer />
 			</div>

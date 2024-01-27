@@ -14,10 +14,10 @@ const SearchBox = () => {
 				aria-label="open search"
 				onClick={() => setOpenSearchBox((prev) => !prev)}
 				className={cn(
-					" transition-opacity duration-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-light rounded-full min-[600px]:hidden"
+					" transition-opacity duration-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-light  min-[600px]:hidden border border-soft-light dark:border-success/20  flex justify-center items-center rounded-full h-[30px] w-full max-w-[30px]"
 				)}
 			>
-				<Search size={18} className="text-light dark:text-success " />
+				<Search size={16} className="text-black dark:text-success " />
 			</button>
 			<div className="hidden min-[600px]:flex w-full max-w-[349px] lg:w-[349px] h-[48px] relative items-center">
 				<div className=" items-center w-full h-full relative flex">

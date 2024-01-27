@@ -21,14 +21,14 @@ const Sidebar = () => {
 			<SwipeIndicator />
 			<div
 				className={cn(
-					"fixed min-h-screen w-full bg-black/50  min-[900px]:bg-black/20 dark:min-[900px]:bg-black/5 top-0 left-0 z-[99] transition-all duration-300 overflow-hidden",
+					"fixed min-h-screen w-full bg-black/50  min-[900px]:bg-black/10 dark:min-[900px]:bg-black/5 top-0 left-0 z-[99] transition-all duration-300 overflow-hidden",
 					openSidebar ? "opacity-100" : "opacity-0 pointer-events-none "
 				)}
 				onClick={() => setOpenSidebar(false)}
 			/>
 			<section
 				className={cn(
-					"bg-[#f7f8fa] dark:bg-gray-900  border-r-soft-border min-[1440px]:border-l dark:border-success/40 z-[60]  transition-all duration-300 py-5 min-[900px]:flex flex-col gap-y-4 justify-between fixed lg:sticky min-h-screen left-0 top-0  border-r border-gray-200  sidebar-scroll     select-none ",
+					"bg-[#f7f8fa] dark:bg-gray-900  border-r-soft-border min-[1440px]:border-l dark:border-success/40 z-[100]  transition-all duration-300 py-5 min-[900px]:flex flex-col gap-y-4 justify-between fixed lg:sticky min-h-screen left-0 top-0  border-r border-gray-200  sidebar-scroll     select-none ",
 					openSidebar
 						? "w-[270px]  items-start flex translate-x-0 z-[99]"
 						: "min-[900px]:w-[80px]  items-center   -translate-x-full min-[900px]:translate-x-0"

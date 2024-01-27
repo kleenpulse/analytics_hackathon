@@ -23,7 +23,7 @@ const InfoModal = ({ info }: { info?: string }) => {
 			<div
 				role="dialog"
 				className={cn(
-					" absolute max-h-max max-w-max border dark:border-success/80 p-4 border-soft-light  w-[220px] top-16 right-[3.4rem] z-[999] dark:bg-black/60  bg-white backdrop-blur-xl min-[900px]:hidden flex  gap-y-2   justify-center items-center  shadow-[0_10px_40px_rgba(0,0,0,0.23)] rounded-xl before:absolute before:content-[''] before:h-[20px] before:w-[20px] before:bg-gradient-to-tl dark:from-transparent dark:via-transparent dark:to-success from-white  to-white before:overflow-hidden before:-top-2 before:rotate-[45deg] before:left-1/2 before:-translate-x-1/2 before:z-[-1] transform-gpu transition-all ",
+					" absolute max-h-max max-w-max border dark:border-success/80 p-4 border-soft-light  w-[220px] top-16 right-[3.4rem] md:right-[7.4rem] z-[999] dark:bg-black/60  bg-white backdrop-blur-xl min-[900px]:hidden flex  gap-y-2   justify-center items-center  shadow-[0_10px_40px_rgba(0,0,0,0.23)] rounded-xl before:absolute before:content-[''] before:h-[20px] before:w-[20px] before:bg-gradient-to-tl dark:from-transparent dark:via-transparent dark:to-success from-white  to-white before:overflow-hidden before:-top-2 before:rotate-[45deg] before:left-1/2 before:-translate-x-1/2 before:z-[-1] transform-gpu transition-all ",
 					showDate
 						? "opacity-100 h-[50px] duration-500 "
 						: "opacity-0 h-[0px] duration-200 overflow-hidden"
