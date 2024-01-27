@@ -11,7 +11,6 @@ import { cn } from "@/utils/util";
 import { USERS, UserProps } from "@/libs/constants";
 import { useRouter, useSearchParams } from "next/navigation";
 import LoadingSpinner from "../LoadingSpinner";
-// export const dynamic = "force-dynamic";
 
 const ViewDocsModal = () => {
 	const { viewDocModal, setViewDocModal } = useStateCtx();

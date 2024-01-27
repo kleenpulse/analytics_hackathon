@@ -8,7 +8,7 @@ import { handleMouseEnter } from "@/utils/text-effect";
 import { useStateCtx } from "@/context/StateContext";
 import InfoModal from "../modal/InfoModal";
 import InputModal from "../modal/InputModal";
-
+export const dynamic = "force-dynamic";
 const Navbar = () => {
 	const { openSidebar, setOpenSidebar, setShowDate, showDate, todayDate } =
 		useStateCtx();

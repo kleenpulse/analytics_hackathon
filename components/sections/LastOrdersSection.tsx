@@ -9,8 +9,8 @@ import { DocumentDownload } from "iconsax-react";
 import MobileLastOrderSection from "./MobileLastOrderSection";
 import ViewDocsModal from "../modal/ViewDocsModal";
 import { useRouter } from "next/navigation";
+import LoadingSpinner from "../LoadingSpinner";
 
-// export const dynamic = "force-dynamic";
 const LastOrdersSection = () => {
 	const { searchTerm, setViewDocModal, filterUsers, setSearchTerm } =
 		useStateCtx();
@@ -21,7 +21,9 @@ const LastOrdersSection = () => {
 
 	return (
 		<>
-			<ViewDocsModal />
+			<Suspense fallback={<LoadingSpinner />}>
+				<ViewDocsModal />
+			</Suspense>
 			<section
 				className={cn(
 					"xl:w-[700px] min-[1400px]:w-[806px] h-[422px] flex-col flex gap-3 justify-center items-center py-6 border border-soft-border dark:border-success/20   bg-white dark:bg-gray-950 px-4 rounded-2xl",
