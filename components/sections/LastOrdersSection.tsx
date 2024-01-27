@@ -47,7 +47,7 @@ const LastOrdersSection = () => {
 			</section>
 			<section
 				className={cn(
-					"xl:w-[700px] min-[1400px]:w-[806px] h-[422px] flex flex-col gap-y-[14px] justify-center py-6 border border-soft-border dark:border-success/20 text-[#9ca4ab]  dark:text-gray-300  bg-white dark:bg-gray-950 px-4 rounded-2xl ",
+					"xl:w-[700px] min-[1400px]:w-[806px] h-[422px] flex flex-col gap-y-[14px] justify-center py-6 border border-soft-border dark:border-success/20 text-[#9ca4ab]  dark:text-gray-300  bg-white dark:bg-gray-950 px-4 rounded-2xl overflow-hidden",
 					{
 						"!hidden": filterUsers.length === 0,
 					}
@@ -73,10 +73,7 @@ const LastOrdersSection = () => {
 				</div>
 				<section
 					className={cn(
-						"xl:w-[700px] min-[1400px]:w-[806px] h-[422px] flex flex-col gap-y-[14px] justify-center py-6 b text-[#9ca4ab]  dark:text-gray-300  bg-white dark:bg-gray-950 px-4 rounded-2xl overflow-x-scroll",
-						{
-							"!hidden": filterUsers.length === 0,
-						}
+						"xl:w-[700px] min-[1400px]:w-[806px] h-[422px] flex flex-col gap-y-[14px] justify-center py-6 b text-[#9ca4ab]  dark:text-gray-300  bg-white dark:bg-gray-950 px-4 rounded-2xl overflow-x-scroll"
 					)}
 				>
 					<div className="flex flex-nowrap items-center justify-between  w-full min-w-[550px]  border-b border-[#edf2f6] dark:border-success/20 text-[#9ca4ab]  dark:text-gray-300  pb-3 ">
@@ -98,7 +95,7 @@ const LastOrdersSection = () => {
 						</span>
 					</div>
 
-					<div className="flex w-full h-[420px] hide-scroll overflow-auto min-w-[550px] flex-col  -mt-[14px]">
+					<div className="flex w-full h-[420px] hide-scroll overflow-auto max-[900px]:min-w-[550px] flex-col  -mt-[14px]">
 						{filterUsers.slice(0, usersNum).map((data, index) => (
 							<div
 								key={data.id}
