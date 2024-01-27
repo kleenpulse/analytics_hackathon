@@ -48,7 +48,7 @@ const ViewDocsModal = () => {
 						: "scale-0 duration-300 pointer-events-none",
 					isMaximize
 						? "sm:h-[560px] sm:w-[617px] md:w-[650px] duration-500"
-						: "sm:h-[460px] md:w-[450px]"
+						: "sm:h-[530px] md:w-[450px]"
 				)}
 			>
 				<div
