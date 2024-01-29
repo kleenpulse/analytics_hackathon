@@ -5,7 +5,7 @@ import LoadingSpinner from "../LoadingSpinner";
 
 const BottomSection = () => {
 	return (
-		<section className="w-full flex-col flex xl:flex-row xl:justify-center gap-y-5 lg:gap-x-4 xl:gap-8">
+		<section className="w-full flex-col flex xl:flex-row xl:justify-center gap-5 lg:gap-4 xl:gap-5">
 			<Suspense fallback={<LoadingSpinner />}>
 				<LastOrdersSection />
 			</Suspense>
