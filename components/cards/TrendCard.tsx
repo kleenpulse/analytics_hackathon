@@ -7,7 +7,7 @@ import React from "react";
 
 const TrendCard = ({ card }: { card: TotalCardsProps }) => {
 	return (
-		<div className="min-[500px]:w-[239px] min-[500px]:h-[179px] p-2 min-[500px]:p-4 max-[450px]:p-4 border border-soft-border dark:border-success/20 flex flex-col justify-between rounded-[16px] bg-white dark:bg-gray-950  gap-y-[10px]">
+		<div className="min-[500px]:w-full xl:w-[239px]  xl:h-[179px] p-2 min-[500px]:p-4 max-[450px]:p-4 max-[450px]:w-full border border-soft-border dark:border-success/20 flex flex-col justify-between rounded-[16px] bg-white dark:bg-gray-950  gap-y-[10px]">
 			<div className="flex justify-between w-full">
 				<span className="border border-soft-light dark:border-success/50  flex justify-center items-center rounded-full min-[500px]:h-10 w-full min-[500px]:max-w-[40px] max-w-[30px] h-[30px]">
 					<card.icon
