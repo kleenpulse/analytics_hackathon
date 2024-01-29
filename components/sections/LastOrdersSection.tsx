@@ -102,7 +102,7 @@ const LastOrdersSection = () => {
 							<div
 								key={data.id}
 								className={cn(
-									"flex flex-nowrap  items-center justify-between  w-full   border-b border-[#edf2f6] dark:border-success/20 text-[#9ca4ab]  dark:text-gray-300 py-2 lg:py-3 transition-all duration-300 ",
+									"flex flex-nowrap  items-center justify-between  w-full   border-b border-[#edf2f6] dark:border-success/20 text-[#9ca4ab]  dark:text-gray-300 py-2 lg:py-3 transition-all duration-300 hover:bg-black/10 dark:hover:bg-success/10",
 									{
 										"border-none": index === filterUsers.length - 1,
 									}
