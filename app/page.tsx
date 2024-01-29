@@ -10,7 +10,7 @@ export default function Home() {
 	return (
 		<>
 			<InputModal />
-			<section className="w-full py-4 mb-20 relative min-h-screen flex flex-col px-2 sm:px-5  gap-y-5">
+			<section className="w-full py-4 mb-24 relative min-h-screen flex flex-col px-2 sm:px-5  gap-y-5">
 				<TrendsSection />
 				<BottomSection />
 			</section>
