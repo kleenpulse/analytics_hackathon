@@ -21,7 +21,7 @@ const TopPlatformSection = () => {
 				</span>
 				<button
 					type="button"
-					className="text-success  text-sm sm:text-[18px] font-medium  capitalize"
+					className="text-success  text-sm sm:text-[18px] font-medium  capitalize hover:opacity-60"
 					onClick={() => {
 						if (usersNum === initNum) {
 							setUsersNum(TOP_PLATFORMS.length);

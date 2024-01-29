@@ -13,7 +13,7 @@ const UserContainer = () => {
 	return (
 		<div
 			role="button"
-			className="w-full max-w-[50px] lg:max-w-[215px] h-[52px] flex items-center gap-x-1 justify-center lg:justify-between p-1 lg:px-2 lg:py-[6px] rounded-full border border-soft-border dark:border-success/20 relative"
+			className="w-full max-w-[50px] lg:max-w-[215px] h-[52px] flex items-center gap-x-1 justify-center lg:justify-between p-1 lg:px-2 lg:py-[6px] rounded-full border border-soft-border dark:border-success/20 relative "
 		>
 			<button
 				type="button"
@@ -81,7 +81,7 @@ const UserContainer = () => {
 			<div
 				role="dialog"
 				className={cn(
-					" absolute max-h-max border dark:border-success/80 p-4 border-soft-light  w-[220px] top-16 right-1 z-[99] dark:bg-black/60  bg-white backdrop-blur-xl flex flex-col gap-y-2   justify-between  shadow-[0_10px_40px_rgba(0,0,0,0.23)] rounded-xl before:absolute before:content-[''] before:h-[20px] before:w-[20px] before:bg-gradient-to-tl dark:from-transparent dark:via-transparent dark:to-success from-white  to-white before:overflow-hidden before:-top-2 before:rotate-[45deg] before:right-4 before:z-[-1] transform-gpu transition-all ",
+					" absolute max-h-max border dark:border-success/80 p-4 border-soft-light  w-[220px] top-16 right-1 z-[999] dark:bg-black/60  bg-white backdrop-blur-xl flex flex-col gap-y-2   justify-between  shadow-[0_10px_40px_rgba(0,0,0,0.23)] rounded-xl before:absolute before:content-[''] before:h-[20px] before:w-[20px] before:bg-gradient-to-tl dark:from-transparent dark:via-transparent dark:to-success from-white  to-white before:overflow-hidden before:-top-2 before:rotate-[45deg] before:right-4 before:z-[-1] transform-gpu transition-all ",
 					openProfile
 						? "opacity-100 h-[200px] duration-500 "
 						: "opacity-0 h-0 duration-200 overflow-hidden pointer-events-none"
