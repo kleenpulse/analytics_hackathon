@@ -65,7 +65,7 @@ const StateCtxProvider = ({ children }: { children: React.ReactNode }) => {
 		openTrendmenu ||
 		showNotification;
 
-	// Today's data
+	// Today's date
 	const todayDate = new Date().toLocaleDateString("en", {
 		month: "long",
 		day: "numeric",
